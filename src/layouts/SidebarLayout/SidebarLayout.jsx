@@ -1,5 +1,5 @@
-import Logo from "../../components/Logo";
 import Profile from "../../components/Sidebar/Profile";
+import Logo from "../../components/Logo";
 
 import Navigation from "../../components/Sidebar/Navigation";
 
