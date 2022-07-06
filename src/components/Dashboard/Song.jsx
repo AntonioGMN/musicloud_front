@@ -1,7 +1,7 @@
 import SongButton from "./SongButton";
 
 export default ({ children }) => (
-	<div className="flex justify-start items-center w-full h-[40px] pl-[5px] pb-[5px] ml-[40px] border-1 border-white border-solid border-b[650px] rounded-none ">
+	<div className="flex justify-start items-center h-[40px] w-fit max-w-[840px] min-w-[120px] pr-[7px] ml-[40px] mb-[12px] border-1 border-light border-solid border-b rounded-none ">
 		<SongButton playing={false}/>
 		<p className="text-[16px]">{children.title}</p>
 	</div>
