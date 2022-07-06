@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Magnifier from "../Icons/Magnifier";
+import Magnifier from '../Icons/Magnifier';
 
-export default function Search({ onSearch = () => 0, placeholder = "Search" }) {
+export default function Search ({ onSearch = () => 0, placeholder = 'Search' }) {
   const [search, setSearch] = useState('');
 
-  function onEnter() {
+  function onEnter () {
     onSearch(search);
   }
 
@@ -16,7 +16,7 @@ export default function Search({ onSearch = () => 0, placeholder = "Search" }) {
         placeholder={placeholder}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && onEnter()}
+        onKeyDown={(e) => e.key === 'Enter' && onEnter()}
         className="w-[100%]"
       />
       <button onClick={() => onSearch(search)}>

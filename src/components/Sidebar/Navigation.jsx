@@ -1,11 +1,11 @@
-import Button from "./Button";
-import Search from "./Search";
+import Button from './Button';
+import Search from './Search';
 
-import File from "../Icons/File";
-import AddUser from "../Icons/AddUser";
-import Link from "./Link";
+import File from '../Icons/File';
+import AddUser from '../Icons/AddUser';
+import Link from './Link';
 
-export default function Navigaion() {
+export default function Navigaion () {
   return (
     <div className="px-1 grow my-4 font-normal">
       <div className="mb-4">
@@ -17,6 +17,6 @@ export default function Navigaion() {
       <Link to="/">Timeline</Link>
       <Link to="/playlists">Playlists</Link>
       <Link active to="/allsongs">All songs</Link>
-    </div> 
+    </div>
   );
 }

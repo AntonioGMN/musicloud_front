@@ -1,4 +1,4 @@
-export async function getSong(id, token) {
+export async function getSong (id, token) {
   const response = await fetch(
     `${import.meta.env.VITE_APP_BASE_API_URL}songs/stream/${id}`,
     {

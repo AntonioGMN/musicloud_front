@@ -1,17 +1,17 @@
-import useAsync from "../useAsync";
+import useAsync from '../useAsync';
 
-import * as userApi from "../../services/userApi";
+import * as userApi from '../../services/userApi';
 
-export default function useSignUp() {
+export default function useSignUp () {
   const {
     loading: signUpLoading,
     error: signUpError,
-    act: signUp,
+    act: signUp
   } = useAsync(userApi.signUp, false);
 
   return {
     signUpLoading,
     signUpError,
-    signUp,
+    signUp
   };
 }

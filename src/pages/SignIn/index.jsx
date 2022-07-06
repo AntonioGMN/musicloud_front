@@ -1,41 +1,41 @@
-import { useState, useContext } from "react";
-import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext } from 'react';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
-import UserContext from "../../contexts/UserContext";
+import UserContext from '../../contexts/UserContext';
 
-import useSignIn from "../../hooks/api/useSignIn";
+import useSignIn from '../../hooks/api/useSignIn';
 
-import AuthLayout from "../../layouts/AuthLayout";
-import Main from "../../layouts/AuthLayout/Main";
-import Footer from "../../layouts/AuthLayout/Footer";
+import AuthLayout from '../../layouts/AuthLayout';
+import Main from '../../layouts/AuthLayout/Main';
+import Footer from '../../layouts/AuthLayout/Footer';
 
-import Input from "../../components/Input";
-import Button from "../../components/Button";
-import Link from "../../components/Link";
+import Input from '../../components/Input';
+import Button from '../../components/Button';
+import Link from '../../components/Link';
 
-export default function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function SignIn () {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const { loadingSignIn, signIn } = useSignIn();
   const { setUserData } = useContext(UserContext);
   const navigate = useNavigate();
-  
-  async function submit(event) {
+
+  async function submit (event) {
     event.preventDefault();
 
     if (password.length < 8) {
-      toast.error("Minimum of 8 characters!");
-    } else if(!email || !password) {
-      toast.error("All fields are required!");
+      toast.error('Minimum of 8 characters!');
+    } else if (!email || !password) {
+      toast.error('All fields are required!');
     } else {
       try {
         const userData = await signIn(email, password);
-				setUserData(userData);
-        toast.success("Login successful");
-        navigate("/");
+        setUserData(userData);
+        toast.success('Login successful');
+        navigate('/');
       } catch (error) {
-        toast.error("Unable to login");
+        toast.error('Unable to login');
       }
     }
   }

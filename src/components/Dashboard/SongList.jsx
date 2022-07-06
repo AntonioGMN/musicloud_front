@@ -1,12 +1,14 @@
-import SongListLayout from "../../layouts/Dashboard/SongListLayout";
-import Song from "./Song";
+import SongListLayout from '../../layouts/Dashboard/SongListLayout';
+import Song from './Song';
 
-export default ({ children }) => (
-	<SongListLayout>
-		{children.length > 0 ? children.map(child => {
-			return (
-				<Song children={child} />
-			)
-		}) : <div>No songs found</div>}
-	</SongListLayout>
-)
+export default ({ songs }) => (
+  <SongListLayout>
+    {songs.length > 0
+      ? songs.map(song => {
+        return (
+          <Song key={song.id} title={song.title} />
+        );
+      })
+      : <div>No songs found</div>}
+  </SongListLayout>
+);

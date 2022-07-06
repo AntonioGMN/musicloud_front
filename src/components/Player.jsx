@@ -1,8 +1,9 @@
 import { useRef, useEffect, useState } from 'react';
 
-import usePlayer from '../../hooks/usePlayer';
+import usePlayer from '../hooks/usePlayer';
 
-import PlayerButton from './PlayerButton';
+import Play from './Icons/Play';
+import Pause from './Icons/Pause';
 
 export default function Player () {
   const audio = useRef(null);
@@ -30,10 +31,8 @@ export default function Player () {
     };
 
     return () => {
-      if (audio && audio.current) {
-        audio.current.ondurationchange = () => 0;
-        audio.current.ontimeupdate = () => 0;
-      }
+      audio.current.ondurationchange = () => 0;
+      audio.current.ontimeupdate = () => 0;
     };
   });
 
@@ -69,7 +68,10 @@ export default function Player () {
         />
       </div>
       <div className="w-[100vw] h-[80px] bg-gray fixed bottom-0 left-0 flex items-center justify-center z-20">
-        <PlayerButton playing={playing} disabled={songLoading} onClick={() => toggle()} />
+        <button disabled={songLoading} onClick={() => toggle()} type="button" className="text-white bg-green hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          {!playing && <Play width={28} height={28} />}
+          {playing && <Pause width={28} height={28} />}
+        </button>
       </div>
       <audio ref={audio} preload="none" controls src={song} className="hidden"></audio>
     </>

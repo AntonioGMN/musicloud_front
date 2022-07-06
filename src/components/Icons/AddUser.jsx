@@ -22,11 +22,11 @@ export default ({ ...props }) => (
       strokeWidth="32"
     />
     <path
-      fill="none" 
+      fill="none"
       stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth="32" 
+      strokeWidth="32"
       d="M88 176v112M144 232H32"
     />
   </svg>

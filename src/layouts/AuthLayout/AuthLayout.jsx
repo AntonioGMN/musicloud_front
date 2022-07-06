@@ -1,6 +1,6 @@
-import Logo from "../../components/Logo";
+import Logo from '../../components/Logo';
 
-import Common from "../Common";
+import Common from '../Common';
 
 export default ({ children }) => (
   <Common>

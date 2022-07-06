@@ -1,8 +1,8 @@
-import useAsync from "../useAsync";
+import useAsync from '../useAsync';
 
-import * as songApi from "../../services/songApi";
+import * as songApi from '../../services/songApi';
 
-export default function useSong() {
+export default function useSong () {
   const {
     loading: songLoading,
     error: songError,

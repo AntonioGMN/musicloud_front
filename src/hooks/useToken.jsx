@@ -1,8 +1,8 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 
-import UserContext from "../contexts/UserContext";
+import UserContext from '../contexts/UserContext';
 
-export function useToken() {
+export function useToken () {
   const { userData: user } = useContext(UserContext);
 
   return user.access_token;
