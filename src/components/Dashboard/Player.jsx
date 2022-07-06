@@ -30,8 +30,10 @@ export default function Player() {
     }
 
     return () => {
-      audio.current.ondurationchange = () => 0;
-      audio.current.ontimeupdate = () => 0;
+      if (audio && audio.current) {
+        audio.current.ondurationchange = () => 0;
+        audio.current.ontimeupdate = () => 0;
+      }
     };
   });
 
