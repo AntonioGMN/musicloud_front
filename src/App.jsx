@@ -3,15 +3,15 @@ import {
   Routes,
   Route,
   Navigate
-} from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+} from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-import { useToken } from './hooks/useToken';
-import { UserProvider } from './contexts/UserContext';
+import { useToken } from "./hooks/useToken";
+import { UserProvider } from "./contexts/UserContext";
 
-import SignUp from './pages/SignUp';
-import SignIn from './pages/SignIn';
+import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 function App() {
   return (
