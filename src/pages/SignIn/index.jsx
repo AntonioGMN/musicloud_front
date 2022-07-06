@@ -1,22 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
+import UserContext from '../../contexts/UserContext';
+
+import useSignIn from '../../hooks/api/useSignIn';
+
 import Container from '../../layouts/Container';
 
-import useSignUp from '../../hooks/api/useSignUp';
-
-export default function SignUp() {
-  const [name, setName] = useState('');
+export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const { loadingSignUp, signUp } = useSignUp();
+  const { loadingSignIn, signIn } = useSignIn();
+
+  const { setUserData } = useContext(UserContext);
 
   const navigate = useNavigate();
-
-
+  
   async function submit(event) {
     event.preventDefault();
 
@@ -28,11 +29,12 @@ export default function SignUp() {
       toast.error('All fields are required!');
     } else {
       try {
-        await signUp(name, email, password);
-        toast.success('Registered!');
-        navigate('/sign-in');
+        const userData = await signIn(email, password);
+				setUserData(userData);
+        toast.success('Login successful');
+        navigate('/');
       } catch (error) {
-        toast.error('Unable to register');
+        toast.error('Unable to login');
       }
     }
   }
@@ -47,18 +49,16 @@ export default function SignUp() {
           </svg>
         </div>
         <div className='flex flex-col items-center'>
-          <p className='text-5xl my-2'>Register</p>
+          <p className='text-5xl my-2'>Login</p>
           <form onSubmit={submit}>
-            <input className="bg-gray border border-slate-400 rounded-lg py-2 px-4 block w-full appearance-none my-4 focus:outline-none" placeholder="Name" type="text"  value={name} onChange={e => setName(e.target.value)} />
             <input className="bg-gray border border-slate-400 rounded-lg py-2 px-4 block w-full appearance-none my-4 focus:outline-none" placeholder="E-mail" type="text"  value={email} onChange={e => setEmail(e.target.value)} />
             <input className="bg-gray border border-slate-400 rounded-lg py-2 px-4 block w-full appearance-none my-4 focus:outline-none" placeholder="Password" type="password"  value={password} onChange={e => setPassword(e.target.value)} />
-            <input className="bg-gray border border-slate-400 rounded-lg py-2 px-4 block w-full appearance-none my-4 focus:outline-none" placeholder="Repeat your password" type="password"  value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} />
-            <button className='bg-transparent border border-green rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-green focus:outline-none' type="submit" disabled={loadingSignUp}>Register</button>
+            <button className='bg-transparent border border-green rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-green focus:outline-none' type="submit" disabled={loadingSignIn}>Register</button>
           </form>
         </div>
         <div className='h-1/6 flex justify-center items-center w-full'>
-          <span className='mr-2'>Already registered? </span>
-          <a className='text-blue-link' href='/sign-in'>Sign-In</a>
+          <span className='mr-2'>Not a member yet? </span>
+          <a className='text-blue-link' href='/sign-up'>Register!</a>
         </div>
       </div>
     </Container>
