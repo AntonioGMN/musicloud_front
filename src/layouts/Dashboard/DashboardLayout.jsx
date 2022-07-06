@@ -1,8 +1,8 @@
 
 import Sidebar from "../SidebarLayout/SidebarLayout";
-import PlayerSession from "./PlayerSession";
 import ContentWrapper from "./ContentWrapper";
 import DashboardCommon from "./DashboardCommon";
+import Player from "../../components/Dashboard/Player";
 
 export default ({ children }) => (
 	<ContentWrapper>
@@ -10,6 +10,6 @@ export default ({ children }) => (
 		<DashboardCommon>
 			{children}
 		</DashboardCommon>
-		<PlayerSession />
+		<Player />
 	</ContentWrapper>
 )

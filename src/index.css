@@ -40,3 +40,23 @@ button {
 button:disabled {
   opacity: 0.8;
 }
+
+input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  cursor: pointer;
+
+  @apply bg-green;
+
+  transition: all .2s ease;
+}
+
+input[type=range]:hover::-moz-range-thumb {
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+}

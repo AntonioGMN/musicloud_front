@@ -1,10 +1,9 @@
 export default ({ ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    className="ionicon"
+    className="ionicon z-20"
     viewBox="0 0 512 512"
     {...props}
-    style={{ transform: 'translateX(2px)' }}
   >
     <title>Play</title>
     <path
