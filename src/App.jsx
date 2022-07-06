@@ -39,10 +39,9 @@ function App () {
               <Route
                 path="/"
                 element={
-                  // <ProtectedRouteGuard>
-                  //   <h1>Oi</h1>
-                  // </ProtectedRouteGuard>
-                  <Dashboard />
+                  <ProtectedRouteGuard>
+                    <Dashboard />
+                  </ProtectedRouteGuard>
                 }
               >
                 <Route path="allsongs" element={<AllSongs />} />
