@@ -69,7 +69,7 @@ export default function Player() {
         />
       </div>
       <div className="w-[100vw] h-[80px] bg-gray fixed bottom-0 left-0 flex items-center justify-center z-20">
-        <PlayerButton disabled={songLoading} onClick={() => toggle()} />
+        <PlayerButton playing={playing} disabled={songLoading} onClick={() => toggle()} />
       </div>
       <audio ref={audio} preload="none" controls src={song} className="hidden"></audio>
     </>
