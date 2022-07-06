@@ -24,9 +24,7 @@ export default function SignIn() {
   async function submit(event) {
     event.preventDefault();
 
-    if (password !== confirmPassword) {
-      toast.error("Passwords must be equal!");
-    } else if (password.length < 8) {
+    if (password.length < 8) {
       toast.error("Minimum of 8 characters!");
     } else if(!email || !password) {
       toast.error("All fields are required!");
