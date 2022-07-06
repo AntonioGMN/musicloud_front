@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useToken } from "./hooks/useToken";
 import { UserProvider } from "./contexts/UserContext";
+import { PlayerProvider } from "./contexts/PlayerContext";
 
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
@@ -29,23 +30,26 @@ function App() {
         pauseOnHover
       />
         <UserProvider>
-          <Router>
-            <Routes>
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="/sign-in" element={<SignIn />} />
-              <Route
-                path="/"
-                element={
-                  // <ProtectedRouteGuard>
-                  //   <h1>Oi</h1>
-                  // </ProtectedRouteGuard>
-                  <Dashboard />
-                }
-              >
-                <Route path="allsongs" element={<AllSongs />} />
-              </Route>
-            </Routes>
-          </Router>
+          <PlayerProvider>
+            <Router>
+              <Routes>
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/sign-in" element={<SignIn />} />
+
+                <Route
+                  path="/"
+                  element={
+                    // <ProtectedRouteGuard>
+                    //   <h1>Oi</h1>
+                    // </ProtectedRouteGuard>
+                    <Dashboard />
+                  }
+                >
+                  <Route path="allsongs" element={<AllSongs />} />
+                </Route>
+              </Routes>
+            </Router>
+          </PlayerProvider>
         </UserProvider>
     </>
   )

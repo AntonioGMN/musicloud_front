@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/*Styling the thumb in Chrome*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  opacity: 0;
+  cursor: pointer;
+
+  @apply bg-green;
+
+  transition: all .2s ease;
+}
+
+input[type=range]:hover::-webkit-slider-thumb {
+  opacity: 1;
+  width: 12px;
+  height: 12px;
+}
+
+button {
+  transition: opacity 0.2s ease;
+}
+
+button:disabled {
+  opacity: 0.8;
+}
