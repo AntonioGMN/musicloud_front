@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import Link from "../Link";
+import { Link } from "react-router-dom";
 
 import UserContext from "../../contexts/UserContext";
 
@@ -17,7 +17,7 @@ export default function Profile() {
 		</div>
 		<div className="flex flex-col items-start">
 			<p className="text-[16px]">{user?.name ? user.name : "User Name"}</p>
-			<p className="text-blue-link text-[12px]" to={`/user?${user?.id}`}>My Profile</p>
+			<Link className="text-blue-link text-[12px]" to={`/user?${user?.id}`}>My Profile</Link>
 		</div>
 	</div>
 )}

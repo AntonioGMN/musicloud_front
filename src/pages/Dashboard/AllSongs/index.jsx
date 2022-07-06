@@ -1,3 +1,5 @@
+import UserContext from "../../../contexts/UserContext";
+
 import SongList from "../../../components/Dashboard/SongList";
 import Header from "../../../components/Dashboard/Header";
 
