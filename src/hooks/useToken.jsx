@@ -5,5 +5,5 @@ import UserContext from "../contexts/UserContext";
 export function useToken() {
   const { userData: user } = useContext(UserContext);
 
-  return user.token;
+  return user.access_token;
 }
