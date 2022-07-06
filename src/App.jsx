@@ -9,9 +9,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { useToken } from "./hooks/useToken";
 import { UserProvider } from "./contexts/UserContext";
+import { PlayerProvider } from "./contexts/PlayerContext";
 
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+
+import Player from "./components/Player";
 
 function App() {
   return (
@@ -27,12 +30,14 @@ function App() {
         pauseOnHover
       />
         <UserProvider>
-          <Router>
-            <Routes>
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="/sign-in" element={<SignIn />} />
-            </Routes>
-          </Router>
+          <PlayerProvider>
+            <Router>
+              <Routes>
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/sign-in" element={<SignIn />} />
+              </Routes>
+            </Router>
+          </PlayerProvider>
         </UserProvider>
     </>
   )
